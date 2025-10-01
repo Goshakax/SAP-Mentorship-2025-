@@ -1,0 +1,44 @@
+﻿<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GoTalk Demo</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="page-bg"></div>
+
+  <div class="wrap">
+    <header class="app-header">
+      <h1>GoТalk <span class="sub">Gemini + ElevenLabs </span></h1>
+      <span id="status" class="status-badge">disconnected</span>
+    </header>
+
+    <section class="panel">
+      <div class="row">
+        <label for="wsUrl" class="sr-only">WebSocket URL</label>
+        <input id="wsUrl" value="ws://localhost:5095/ws" />
+        <button id="connectBtn" class="btn">Свържи</button>
+      </div>
+
+      <div class="row controls">
+        <button id="talkBtn" class="btn btn-primary">Говори</button>
+        <button id="stopBtn" class="btn btn-danger">Стоп</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h3>Отговор (текст)</h3>
+      <div id="log" aria-live="polite"></div>
+    </section>
+
+    <section class="panel">
+      <h3>Аудио</h3>
+      <audio id="player" controls></audio>
+    </section>
+  </div>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>

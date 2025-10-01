@@ -1,0 +1,31 @@
+﻿{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:42001",
+      "sslPort": 44386
+    }
+  },
+  "profiles": {
+    "GOtalk_voice": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:7265;http://localhost:5095",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "GEMINI_API_KEY": "AIzaSyDMZnNVJZngw_wt5NJjNbCQlT7KWmf62G4",
+        "ELEVEN_API_KEY": "c45c3b535c2e5d493de6f7450d8fbb63031c13b7900ccf0e4cad7020d8906735",
+        "ELEVEN_VOICE_ID": "zYcjlYFOd3taleS0gkk3"
+      }
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

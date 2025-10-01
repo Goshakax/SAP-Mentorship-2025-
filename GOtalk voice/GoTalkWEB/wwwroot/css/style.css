@@ -1,0 +1,153 @@
+/* Base */
+:root{
+  --bg:#0b0d10;
+  --bg-elev:#0f1319;
+  --card:#12151a;
+  --line:#2a2f39;
+  --text:#e6e6e6;
+  --muted:#aeb4c0;
+  --acc:#5a8cff;
+  --acc-2:#1f4d2e;
+  --danger:#b94141;
+  --shadow: 0 6px 24px rgba(0,0,0,.35), 0 2px 8px rgba(0,0,0,.25);
+  --radius: 14px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font:16px/1.5 system-ui, Segoe UI, Roboto, Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+.page-bg{
+  position:fixed; inset:0;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(90,140,255,.12), transparent 55%),
+    radial-gradient(1000px 800px at 120% 10%, rgba(148,117,255,.10), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.02), transparent);
+  pointer-events:none;
+  filter:saturate(110%);
+}
+
+.wrap{max-width:920px; margin:40px auto; padding:0 20px}
+.app-header{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:16px; margin-bottom:20px;
+}
+h1{font-size:28px; margin:0; letter-spacing:.3px}
+.sub{font-size:14px; font-weight:500; color:var(--muted); margin-left:8px}
+
+.panel{
+  background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.00)) , var(--card);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:16px;
+  backdrop-filter:saturate(120%) blur(2px);
+  margin-bottom:16px;
+}
+.panel h3{margin:4px 0 12px; font-size:18px}
+
+.row{display:flex; gap:10px; align-items:center}
+.row.controls{margin-top:10px}
+
+button, input{
+  border-radius:10px;
+  border:1px solid var(--line);
+  background:var(--card);
+  color:var(--text);
+  padding:10px 12px;
+  outline:none;
+  transition:transform .06s ease, border-color .15s ease, box-shadow .15s ease, background .2s ease;
+}
+input{
+  flex:1;
+  min-width:0;
+}
+input:focus{
+  border-color:var(--acc);
+  box-shadow:0 0 0 3px rgba(90,140,255,.25);
+}
+
+.btn{cursor:pointer; user-select:none}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(0)}
+.btn:focus-visible{box-shadow:0 0 0 3px rgba(90,140,255,.35)}
+
+.btn-primary{
+  background:linear-gradient(180deg, rgba(90,140,255,.18), rgba(90,140,255,.12));
+  border-color:rgba(90,140,255,.45);
+}
+.btn-primary:hover{
+  background:linear-gradient(180deg, rgba(90,140,255,.26), rgba(90,140,255,.16));
+}
+
+.btn-danger{
+  background:linear-gradient(180deg, rgba(185,65,65,.18), rgba(185,65,65,.12));
+  border-color:rgba(185,65,65,.5);
+}
+.btn-danger:hover{
+  background:linear-gradient(180deg, rgba(185,65,65,.26), rgba(185,65,65,.16));
+}
+
+.on{
+  background:var(--acc-2) !important;
+  border-color:#2f7a46 !important;
+}
+
+.status-badge{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:6px 10px; border-radius:999px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  color:var(--muted);
+  font-size:12px; letter-spacing:.3px;
+}
+.status-badge::before{
+  content:"";
+  width:8px;height:8px;border-radius:50%;
+  background:#7a7a7a; box-shadow:0 0 8px rgba(122,122,122,.6);
+}
+.status-badge.connected{ color:#bde1c9; }
+.status-badge.connected::before{ background:#35d37e; box-shadow:0 0 10px rgba(53,211,126,.7); }
+.status-badge.error{ color:#f1c2c2; }
+.status-badge.error::before{ background:#ff5b5b; box-shadow:0 0 10px rgba(255,91,91,.7); }
+
+#log{
+  white-space:pre-wrap;
+  background:var(--bg-elev);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:12px;
+  height:260px; /* a bit taller */
+  overflow:auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size:13px;
+}
+
+audio{width:100%}
+
+@media (prefers-reduced-motion:no-preference){
+  .panel{animation:pop .18s ease-out}
+  @keyframes pop{
+    from{transform:scale(.992); opacity:0}
+    to{transform:scale(1); opacity:1}
+  }
+}
+
+.sr-only{
+  position:absolute !important; width:1px; height:1px;
+  padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
+
+@media (max-width:560px){
+  .app-header{flex-direction:column; align-items:flex-start}
+  .row{flex-direction:column; align-items:stretch}
+  .row.controls{flex-direction:row; flex-wrap:wrap}
+  .btn{flex:1}
+}
